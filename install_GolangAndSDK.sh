@@ -12,4 +12,11 @@ go mod init example    # ---- Initializes your local project in current working 
 go get github.com/aws/aws-sdk-go-v2
 go get github.com/aws/aws-sdk-go-v2/config
 
+# --------------------------------------------------------------------------------------------------------------------------------
+# Next you can install one or more AWS service API clients required by your application. 
+# All API clients are located under github.com/aws/aws-sdk-go-v2/service import hierarchy.
+# To install a service client, execute the following command to retrieve the module and 
+# record the dependency in your go.mod file. In this example we retrieve the Amazon S3 API client.
+
+go get github.com/aws/aws-sdk-go-v2/service/s3
 
