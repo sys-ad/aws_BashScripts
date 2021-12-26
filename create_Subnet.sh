@@ -11,4 +11,4 @@ aws ec2 create-subnet --vpc-id $VPC_ID \
 --cidr-block CIDR_ --availability-zone ${AWS_REGION}a \
 --tag-specifications \
 "ResourceType=subnet, Tags=[{Key=Name,Value='$SUBNET_NAME'}]" \
---output text --query Subnet.SubnetId)
+--output text --query Subnet.SubnetId
