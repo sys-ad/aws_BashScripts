@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Creates route table
+# Creates route table. 
 
 echo -n "Enter VPC ID: "
 read VPC_ID
