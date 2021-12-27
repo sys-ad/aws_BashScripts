@@ -3,9 +3,9 @@
 # Create VPC With Amazon-provided IPv6 CIDR block.
 
 echo -n "Enter Ipv4 for creation: "
-read $IPv4_CIDR
+read IPv4_CIDR
 echo -n "Give VPC a name: "
-read $VPC_NAME
+read VPC_NAME
 
 aws ec2 create-vpc --cidr-block $IPv4_CIDR \
 --amazon-provided-ipv6-cidr-block \
