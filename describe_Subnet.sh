@@ -5,4 +5,4 @@
 echo -n "Enter valid subnet-ID: "
 read SUBNET_ID
 
-aws ec2 decscribe-subnets --subnet-ids $SUBNET_ID
+aws ec2 describe-subnets --subnet-ids $SUBNET_ID
