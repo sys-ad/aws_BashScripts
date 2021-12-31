@@ -22,6 +22,8 @@ fi
 if [ $? == 0 ]
 then
 echo -n "Successfully created IGW and attached it to existing VPC."
-fi
 else
 echo -n "Failed to create IGW or attach it to existing VPC"
+fi
+exit
+
