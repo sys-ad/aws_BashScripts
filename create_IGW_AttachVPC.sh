@@ -6,17 +6,17 @@ echo -n "Create IGW; Give it a name: "
 read IGW
 
 INET_GATEWAY_ID=$(aws ec2 create-internet-gateway \
-        --tag-specifiatiions "ResourceType=internet-gateway,Tags=[{Key=Name,Value='$IGW'}]"
+                --tag-specifications "ResourceType=internet-gateway,Tags=[{Key=Name,Value='$IGW'}]" \
         --output text --query InternetGateway.InternetGatewayId)
-        
-if [ '$?' == 0 ]
+
+if [ $? == 0 ]
 then
-  echo -n "Attach IGW to existing VPC, enter VPC-Id: "
-  read VPC_ID
-  aws ec2 attach-internet-gateway \
-  --internet-gateway-id $INET_GATEWAY_ID --vpc-id $VPC_ID
+echo -n "Attach IGW to existing VPC, enter VPC-Id: "
+read VPC_ID
+aws ec2 attach-internet-gateway \
+--internet-gateway-id $INET_GATEWAY_ID --vpc-id $VPC_ID
 else
-  echo -n "Failed to create IGW"
+echo -n "Failed to create IGW"
 fi
 
 exit
