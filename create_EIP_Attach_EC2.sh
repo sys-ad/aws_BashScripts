@@ -10,8 +10,16 @@ if [ $? == 0 ]
 then
     echo -n "Successfully created EIP"
 else
-    2>/errorlog.log
+    2>>error.log
 fi
+
+echo -n "Enter valid EC2 instance ID: "
+read INSTANCE_ID
+aws ec2 associate-adress \
+    --instance-id $INSTANCE_ID --allocation-id $ALLOCATION_ID
+  
+
+
 
 
     
