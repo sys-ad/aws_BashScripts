@@ -8,12 +8,12 @@ ALLOCATION_ID=$(aws ec2 allocate-adress --domain vpc \
               
 if [ $? == 0 ] 
 then
-    echo -n "Successfully created EIP"
+    echo "Successfully created EIP"
 else
-    2>>error.log
+    echo "Could not create EIP"
 fi
 
-echo -n "Enter valid EC2 instance ID: "
+echo -n "Enter valid EC2 instance ID:"
 read INSTANCE_ID
 aws ec2 associate-adress \
     --instance-id $INSTANCE_ID --allocation-id $ALLOCATION_ID
