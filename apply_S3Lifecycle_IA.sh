@@ -6,6 +6,4 @@ read NAME
 echo -n "Enter path of policy file: "
 read PATH
 
-aws s3api put-bucket-lifecycle-configuration \
-    --bucket $NAME \
-    --lifecycle-configuration $PATH
+aws s3api put-bucket-lifecycle-configuration --bucket $NAME --lifecycle-configuration $PATH
