@@ -20,7 +20,7 @@ echo  -n "Enter valid public subnet-id: "
 read SUBNET_ID
 
 NAT_GATEWAY_ID=$(aws ec2 create-nat-gateway \
-    --subnet-id $SUBNET_ID
+    --subnet-id $SUBNET_ID \
     --allocation-id $ALLOCATION_ID \    # Associates created EIP (ALLOCATION_ID) with NAT gateway
     --output text --query NatGateway.NatGatewayId)
     
