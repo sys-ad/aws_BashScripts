@@ -13,4 +13,13 @@ else
     echo -n "Could not create EIP"
 fi
 
-# Create a NAT gateway within a public subnet (enter it from s
+# Create a NAT gateway within a public subnet (enter valid public subnet-id)
+
+echo "Enter valid public subnet-id: "
+read SUBNET_ID
+
+NAT_GATEWAY_ID=$(aws ec2 create-nat-gateway \
+    --subnet-id $SUBNET_ID
+    --allocation-id $ALLOCATION_ID \    # Associates created EIP (ALLOCATION_ID) with NAT gateway
+    --output text --query NatGateway.NatGatewayId)
+    
