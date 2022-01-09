@@ -13,8 +13,10 @@ echo $AMI
 
 echo -n "Enter valid subnet-id: "
 read SUBNET_ID
-echo -"Enter valid valid sg-id: "
+echo -n "Enter valid valid sg-id: "
 read SG_ID
+echo -n "Give your web server a name: "
+read SERVER_NAME
 
 #Download user data script
 wget https://aws-tc-largeobjects.s3.amazonaws.com/CUR-TF-100-RESTRT-1/171-lab-%5BJAWS%5D-create-ec2/UserData.txt
@@ -22,11 +24,11 @@ wget https://aws-tc-largeobjects.s3.amazonaws.com/CUR-TF-100-RESTRT-1/171-lab-%5
 INSTANCE=$(\
 aws ec2 run-instances \
 --image-id $AMI \
---subnet-id $SUBNET \
---security-group-ids $SG \
+--subnet-id $SUBNET_ID \
+--security-group-ids $SG_ID \
 --user-data file:///home/ec2-user/UserData.txt \
---instance-type t3.micro \
---tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Web Server}]' \
+--instance-type t2.micro \
+--tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$SERVER_NAME}]" \
 --query 'Instances[*].InstanceId' \
 --output text \
 )
