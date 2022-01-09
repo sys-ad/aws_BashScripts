@@ -1,4 +1,8 @@
-#Set the Region
+#!/bin/bash
+
+# Creates a Ec2 instance with a running apache server. Note: Enter existing security group and subnet id's
+
+# Set the Region
 AZ=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
 export AWS_DEFAULT_REGION=${AZ::-1}
 
