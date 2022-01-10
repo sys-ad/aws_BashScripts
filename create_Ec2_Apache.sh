@@ -29,7 +29,7 @@ aws ec2 run-instances \
 --security-group-ids $SG_ID \
 --user-data file:///home/ec2-user/UserData.txt \
 --instance-type t2.micro \
---tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=SERVER_NAME}]' \
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$SERVER_NAME}]' \
 --query 'Instances[*].InstanceId' \
 --output text \
 )
