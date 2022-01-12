@@ -20,5 +20,12 @@ read INSTANCE_ID
 
 aws ec2 modify-instance-attribute --instance-id $INSTANCE_ID \
     --groups $SG_ID
-    
+
+# describe security group
+
+
+aws ec2 describe-security-groups --groups-ids \
+    $(aws ec2 describe-instances --instance-id $INSTANCE_ID \
+    --query "Reservations[].Instances[].SecurityGroups[].GroupId[]" \
+    --output text) --output text
  
