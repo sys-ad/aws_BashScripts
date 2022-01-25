@@ -2,4 +2,4 @@
 
 # Tests access across subnets for connectivity (SSH)
 
-aws 
+echo "Creating network insights path... enter source 
