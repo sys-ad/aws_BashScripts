@@ -40,22 +40,18 @@ sleep 1
 echo "loading."
 sleep 10
 echo  "..."
-sleep 20
-echo -n "Nat Gateway status: "
-
 //aws ec2 describe-nat-gateways \
   //                 --nat-gateway-ids $NAT_GATEWAY_ID \
     //               --output text --query NatGateways[0].State
 
 wait $!
 
-
 echo "Creating route for default route (0.0.0.0/0) with destination to NAT Gateway:"
 echo "Loading..."
 echo "Loading...."
 echo "Loading....."
 echo "Loading......"
-sleep 12
+sleep 5
 
 echo -n "Enter valid private rtb-id: "
 read RTB_ID
