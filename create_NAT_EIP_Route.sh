@@ -30,9 +30,12 @@ NAT_GATEWAY_ID=$(aws ec2 create-nat-gateway \
     --output text --query NatGateway.NatGatewayId)
 
 sleep 25
+
 aws ec2 describe-nat-gateways \
     --nat-gateway-ids $NAT_GATEWAY_ID \
     --output text --query NatGateways[0].State
     
- 
-    
+echo -n "Creating route for default route (0.0.0.0/0) with destination to NAT Gateway:"
+echo -n "Loading..."
+sleep 10
+
