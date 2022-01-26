@@ -6,13 +6,15 @@ echo "Create EIP to be used with NAT gateway: "
 ALLOCATION_ID=$(aws ec2 allocate-address --domain vpc \
                 -output text --query AllocationId)
                 
-....
+sleep 10
                 
 if [ $? == 0 ]
 then
     echo -n "Successfully created EIP"
+    sleep 10
 else
     echo -n "Could not create EIP"
+    sleep 10
     exit
 fi
 
