@@ -39,3 +39,11 @@ echo -n "Creating route for default route (0.0.0.0/0) with destination to NAT Ga
 echo -n "Loading..."
 sleep 10
 
+echo -n "Enter valid private rtb-id: "
+read $RTB_ID
+aws ec2 create-route --route-table-id $RTB_ID \
+    --destination-cidr-block 0.0.0.0/0 \
+    --nat-gateway-id $NAT_GATEWAY_ID
+
+
+
