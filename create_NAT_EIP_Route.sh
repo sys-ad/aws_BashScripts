@@ -38,7 +38,7 @@ sleep 2
 echo "loading.."
 sleep 1
 echo "loading."
-sleep 10
+sleep 7
 echo  "..."
 //aws ec2 describe-nat-gateways \
   //                 --nat-gateway-ids $NAT_GATEWAY_ID \
